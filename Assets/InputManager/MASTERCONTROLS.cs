@@ -259,6 +259,34 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Player2"",
+            ""id"": ""24ec8e3e-58f3-4aa3-aee2-e8b6c176fd0b"",
+            ""actions"": [
+                {
+                    ""name"": ""AddPlayer"",
+                    ""type"": ""Button"",
+                    ""id"": ""0b42f15a-912a-4971-9163-0ed942aaa7a2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""898e115a-02dd-4224-8e1d-376bd1af0e62"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AddPlayer"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -266,6 +294,9 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_movement = m_Player1.FindAction("movement", throwIfNotFound: true);
+        // Player2
+        m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
+        m_Player2_AddPlayer = m_Player2.FindAction("AddPlayer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,8 +400,58 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         }
     }
     public Player1Actions @Player1 => new Player1Actions(this);
+
+    // Player2
+    private readonly InputActionMap m_Player2;
+    private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
+    private readonly InputAction m_Player2_AddPlayer;
+    public struct Player2Actions
+    {
+        private @MASTERCONTROLS m_Wrapper;
+        public Player2Actions(@MASTERCONTROLS wrapper) { m_Wrapper = wrapper; }
+        public InputAction @AddPlayer => m_Wrapper.m_Player2_AddPlayer;
+        public InputActionMap Get() { return m_Wrapper.m_Player2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(Player2Actions set) { return set.Get(); }
+        public void AddCallbacks(IPlayer2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
+            @AddPlayer.started += instance.OnAddPlayer;
+            @AddPlayer.performed += instance.OnAddPlayer;
+            @AddPlayer.canceled += instance.OnAddPlayer;
+        }
+
+        private void UnregisterCallbacks(IPlayer2Actions instance)
+        {
+            @AddPlayer.started -= instance.OnAddPlayer;
+            @AddPlayer.performed -= instance.OnAddPlayer;
+            @AddPlayer.canceled -= instance.OnAddPlayer;
+        }
+
+        public void RemoveCallbacks(IPlayer2Actions instance)
+        {
+            if (m_Wrapper.m_Player2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IPlayer2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_Player2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_Player2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public Player2Actions @Player2 => new Player2Actions(this);
     public interface IPlayer1Actions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IPlayer2Actions
+    {
+        void OnAddPlayer(InputAction.CallbackContext context);
     }
 }
