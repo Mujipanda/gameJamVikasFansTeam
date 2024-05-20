@@ -237,6 +237,34 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Player2",
+            "id": "24ec8e3e-58f3-4aa3-aee2-e8b6c176fd0b",
+            "actions": [
+                {
+                    "name": "AddPlayer",
+                    "type": "Button",
+                    "id": "0b42f15a-912a-4971-9163-0ed942aaa7a2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "898e115a-02dd-4224-8e1d-376bd1af0e62",
+                    "path": "<XInputController>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AddPlayer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
