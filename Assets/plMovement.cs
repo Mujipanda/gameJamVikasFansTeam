@@ -2,19 +2,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class plMovement : MonoBehaviour
 {
     [SerializeField]
     private Vector2 movVec;
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
 
     [SerializeField]
     private float speed;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
     void OnMovement(InputValue input)
     {

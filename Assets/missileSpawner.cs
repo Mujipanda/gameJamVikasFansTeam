@@ -13,6 +13,8 @@ public class missileSpawner : MonoBehaviour
 
     [SerializeField]
     private float spawnDelay = 4;
+    [SerializeField]
+    private float detectDistance = 2;
 
     [SerializeField]
     private GameObject missilePrefab;
@@ -57,13 +59,13 @@ public class missileSpawner : MonoBehaviour
             lifeTime[i] += Time.fixedDeltaTime;
             float dist = Vector2.Distance(missiles[i].transform.position, playerPos.position);
             //print(dist);
-            if (dist < 2)
+            if (dist < detectDistance)
             {
                 Destroy(missiles[i]);
                 missiles.Remove(missiles[i]);
                 lifeTime.Remove(lifeTime[i]);
             }
-            else if (lifeTime[i] > 100)
+            else if (lifeTime[i] > 30)
             {
                 print(lifeTime[i] + " life time eached");
                 Destroy(missiles[i]);
