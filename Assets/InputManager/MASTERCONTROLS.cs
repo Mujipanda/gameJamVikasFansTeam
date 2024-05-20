@@ -149,61 +149,6 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""2D Vector arrow keys"",
-                    ""id"": ""5aa6e48a-4c4d-4f5f-8122-9b420e450588"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""movement"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""efad12b2-50e4-4c0a-b48c-72fd4c6b0b8b"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""2f7262e4-6361-4d62-94eb-c84499dec293"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""c64483b9-bc71-4e57-8b5e-bae27909b585"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""e16846d8-dc62-42ee-b359-2a1ecefd13aa"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""2D Vector WASD"",
                     ""id"": ""777caa8a-6eb7-4520-a086-1893cc5000e0"",
                     ""path"": ""2DVector"",
@@ -265,10 +210,10 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
             ""id"": ""24ec8e3e-58f3-4aa3-aee2-e8b6c176fd0b"",
             ""actions"": [
                 {
-                    ""name"": ""AddPlayer"",
-                    ""type"": ""Button"",
-                    ""id"": ""0b42f15a-912a-4971-9163-0ed942aaa7a2"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""movement"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c97b86c6-a796-4a62-9b4d-7ca48b1da125"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -276,15 +221,169 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""898e115a-02dd-4224-8e1d-376bd1af0e62"",
-                    ""path"": ""<XInputController>/buttonEast"",
+                    ""name"": ""2D Vector Xbox"",
+                    ""id"": ""389811d5-7f4a-4feb-bb96-ac8d8fcc92ac"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""AddPlayer"",
-                    ""isComposite"": false,
+                    ""action"": ""movement"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""96e459a9-e9bd-4eaf-b6d2-f6b45d4bdf80"",
+                    ""path"": ""<XInputController>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""7fd58109-e704-496f-85cb-1744825122bc"",
+                    ""path"": ""<XInputController>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e3a87678-fe4d-4dd3-b373-394e6d9c142a"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""94eac549-c930-4e22-89cd-374694829d8a"",
+                    ""path"": ""<XInputController>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector General Controls"",
+                    ""id"": ""839e312a-3d23-40cb-a096-7fa7b5859b68"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""246c0421-426f-40df-99e3-26138b2597a3"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""81f65d4c-11ac-4347-8e21-056c1bc7288d"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6a0b973f-f3a6-43fe-af8e-f98e053bdbd3"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3089d57d-95a7-49ae-ab7f-31ced84cb0a7"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector arrow keys"",
+                    ""id"": ""b461b167-d9ec-48cf-9d50-8d0334ef9815"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""66701443-d6a2-46e3-a251-fcb05caa1d6a"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1580ba4d-0b00-4e70-865b-6b6cc743c8c4"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d260a05e-4464-4233-9f2c-2c8a444a36ad"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""831ffddb-4423-4759-a1fc-822197db4c1c"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -296,7 +395,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         m_Player1_movement = m_Player1.FindAction("movement", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_AddPlayer = m_Player2.FindAction("AddPlayer", throwIfNotFound: true);
+        m_Player2_movement = m_Player2.FindAction("movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -404,12 +503,12 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
     // Player2
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
-    private readonly InputAction m_Player2_AddPlayer;
+    private readonly InputAction m_Player2_movement;
     public struct Player2Actions
     {
         private @MASTERCONTROLS m_Wrapper;
         public Player2Actions(@MASTERCONTROLS wrapper) { m_Wrapper = wrapper; }
-        public InputAction @AddPlayer => m_Wrapper.m_Player2_AddPlayer;
+        public InputAction @movement => m_Wrapper.m_Player2_movement;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -419,16 +518,16 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
-            @AddPlayer.started += instance.OnAddPlayer;
-            @AddPlayer.performed += instance.OnAddPlayer;
-            @AddPlayer.canceled += instance.OnAddPlayer;
+            @movement.started += instance.OnMovement;
+            @movement.performed += instance.OnMovement;
+            @movement.canceled += instance.OnMovement;
         }
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
         {
-            @AddPlayer.started -= instance.OnAddPlayer;
-            @AddPlayer.performed -= instance.OnAddPlayer;
-            @AddPlayer.canceled -= instance.OnAddPlayer;
+            @movement.started -= instance.OnMovement;
+            @movement.performed -= instance.OnMovement;
+            @movement.canceled -= instance.OnMovement;
         }
 
         public void RemoveCallbacks(IPlayer2Actions instance)
@@ -452,6 +551,6 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
     }
     public interface IPlayer2Actions
     {
-        void OnAddPlayer(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
     }
 }
