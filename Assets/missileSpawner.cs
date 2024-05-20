@@ -51,7 +51,7 @@ public class missileSpawner : MonoBehaviour
     IEnumerator spawnMissile()
     {
         canSpawn = false;
-        GameObject missile = Instantiate(missilePrefab, transform);
+        GameObject missile = Instantiate(missilePrefab, spawnPoints[Random.Range(0,spawnPoints.Length)]);
 
 
 
