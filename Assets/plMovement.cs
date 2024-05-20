@@ -20,9 +20,6 @@ public class plMovement : MonoBehaviour
     {
         Vector2 movement = input.Get<Vector2>();
         // movVec = new Vector2(movement.x, movement.y);
-        
-        float x = movement.x;
-        float dest = 0;
         print(movement.x);
         
         StartCoroutine(lerpMovement(movement));
