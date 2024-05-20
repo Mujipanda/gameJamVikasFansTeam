@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class missileSpawner : MonoBehaviour
@@ -18,6 +19,10 @@ public class missileSpawner : MonoBehaviour
 
 
     private bool canSpawn = true;
+
+    [SerializeField]
+    private List<GameObject> missiles = new List<GameObject>();
+    private List<float> lifeTime = new List<float>();
 
     private void calMissilePos()
     {
@@ -46,19 +51,44 @@ public class missileSpawner : MonoBehaviour
     {
         if(canSpawn)
         StartCoroutine(spawnMissile());
+
+        for (int i = 0; i < missiles.Count; i++)
+        {
+            lifeTime[i] += Time.fixedDeltaTime;
+            float dist = Vector2.Distance(missiles[i].transform.position, playerPos.position);
+            //print(dist);
+            if (dist < 2)
+            {
+                Destroy(missiles[i]);
+                missiles.Remove(missiles[i]);
+                lifeTime.Remove(lifeTime[i]);
+            }
+            else if (lifeTime[i] > 100)
+            {
+                print(lifeTime[i] + " life time eached");
+                Destroy(missiles[i]);
+                missiles.Remove(missiles[i]);
+                lifeTime.Remove(lifeTime[i]);
+            }
+
+        }
+
     }
 
     IEnumerator spawnMissile()
     {
         canSpawn = false;
         GameObject missile = Instantiate(missilePrefab, spawnPoints[Random.Range(0,spawnPoints.Length)]);
+        missiles.Add(missile);
+        lifeTime.Add(0);
 
+       
 
+        yield return new WaitForSeconds(spawnDelay);
 
-
-            yield return new WaitForSeconds(spawnDelay);
-
+       
         canSpawn = true;
+
 
     }
 }

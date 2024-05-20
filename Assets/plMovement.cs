@@ -20,8 +20,7 @@ public class plMovement : MonoBehaviour
     {
         Vector2 movement = input.Get<Vector2>();
         // movVec = new Vector2(movement.x, movement.y);
-        print(movement.x);
-        
+
         StartCoroutine(lerpMovement(movement));
        
        
@@ -39,7 +38,7 @@ public class plMovement : MonoBehaviour
             float y = Mathf.Lerp(movVec.y, mov.y, t);
 
             movVec = new Vector2(x,y);
-            print(movVec);
+            //print(movVec);
             rb.velocity = movVec * speed;
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
