@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip bg;
     public AudioClip Missile;
+    public AudioClip BombDrop;
 
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
