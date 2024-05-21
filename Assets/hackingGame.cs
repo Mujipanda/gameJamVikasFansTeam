@@ -64,4 +64,15 @@ public class hackingGame : MonoBehaviour
         print(direction + " Quaternion");
     }
 
+
+    public void wallCollision()
+    {
+        print("pipper hit wall");
+    }
+
+    public void finishCollsion()
+    {
+        print("pipper hit finish");
+    }
+
 }

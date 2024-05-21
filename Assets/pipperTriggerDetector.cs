@@ -8,6 +8,10 @@ public class pipperTriggerDetector : MonoBehaviour
     hackingGame hackingGame;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("obsticle"))
+            hackingGame.wallCollision();
+
+        else if(collision.gameObject.CompareTag("Finish"))
+            hackingGame.finishCollsion();
     }
 }
