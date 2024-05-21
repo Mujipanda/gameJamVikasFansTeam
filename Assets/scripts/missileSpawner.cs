@@ -84,7 +84,7 @@ public class missileSpawner : MonoBehaviour
                 lifeTime.Remove(lifeTime[i]);
                 
             }
-            else if (lifeTime[i] > 30)
+            else if (lifeTime[i] > 20)
             {
                 createExplosion(i);
                 print(lifeTime[i] + " life time eached");
@@ -94,7 +94,6 @@ public class missileSpawner : MonoBehaviour
             }
 
         }
-
     }
 
     private void createExplosion(int i)
