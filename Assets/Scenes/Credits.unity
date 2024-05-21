@@ -1145,7 +1145,10 @@ MonoBehaviour:
     Missile Launching.wav by morganpurkis -- https://freesound.org/s/398213/
 
     Very
-    Creepy Ominous Horror Music 1 by Audio_Dread -- https://freesound.org/s/524133/'
+    Creepy Ominous Horror Music 1 by Audio_Dread -- https://freesound.org/s/524133/
+
+    [Boom
+    SFX] Massive bass blast/drop/bomb by waveplaySFX -- https://freesound.org/s/193028/'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1172,8 +1175,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15.6
-  m_fontSizeBase: 15.6
+  m_fontSize: 16.27
+  m_fontSizeBase: 16.27
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1208,7 +1211,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -504.26636, w: -5.812193}
+  m_margin: {x: 0, y: 0, z: -516.13666, w: -22.722958}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
