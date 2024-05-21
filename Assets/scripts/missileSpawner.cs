@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class missileSpawner : MonoBehaviour
 {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     [SerializeField]
     private Transform[] spawnPoints;
 
@@ -84,7 +91,7 @@ public class missileSpawner : MonoBehaviour
         missiles.Add(missile);
         lifeTime.Add(0);
 
-       
+        audioManager.PlaySFX(audioManager.Missile);
 
         yield return new WaitForSeconds(spawnDelay);
 

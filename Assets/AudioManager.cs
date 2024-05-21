@@ -8,11 +8,20 @@ public class AudioManager : MonoBehaviour
     public Button btnOn;
     public Button btnOff;
 
+    public AudioClip bg;
+    public AudioClip Missile;
+
+    [SerializeField] AudioSource musicSource;
+    [SerializeField] AudioSource SFXSource;
+
     private AudioSource audioSource;
 
     // Use this for initialization
     void Start()
     {
+        musicSource.clip = bg;
+        musicSource.Play();
+
         btnOn = GetComponent<Button>();
         btnOff = GetComponent<Button>();
 
@@ -30,5 +39,10 @@ public class AudioManager : MonoBehaviour
     void StopAudio()
     {
         audioSource.volume = 0f;
+    }
+
+    public void PlaySFX (AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
     }
 }
