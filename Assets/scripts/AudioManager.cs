@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public Button btnOn;
     public Button btnOff;
 
+    public AudioListener listener;
+
     public AudioClip bg;
     public AudioClip Missile;
 
@@ -25,20 +27,24 @@ public class AudioManager : MonoBehaviour
         btnOn = GetComponent<Button>();
         btnOff = GetComponent<Button>();
 
-        btnOn.onClick.AddListener(() => PlayAudio());
-        btnOff.onClick.AddListener(() => StopAudio());
+       // btnOn.onClick.AddListener(() => PlayAudio());
+       // btnOff.onClick.AddListener(() => StopAudio());
 
-        audioSource = GameObject.Find("Bg").GetComponent<AudioSource>();
+       // audioSource = GameObject.Find("bg").GetComponent<AudioSource>();
     }
 
-    void PlayAudio()
+     public void PlayAudio()
     {
-        audioSource.volume = 0.5f;
+        listener.enabled = true;
+       // audioSource.volume = 0.5f;
+        print("PlayAudio");
     }
 
-    void StopAudio()
+    public void StopAudio()
     {
-        audioSource.volume = 0f;
+       // audioSource.volume = 0f;
+        listener.enabled = false;
+        print("StopAudio");
     }
 
     public void PlaySFX (AudioClip clip)

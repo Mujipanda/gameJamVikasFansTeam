@@ -217,6 +217,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1103946494}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &187688674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +688,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103946494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 366741789089094574, guid: 089a43d59b155574fa1e3d0c10b09897, type: 3}
+  m_PrefabInstance: {fileID: 5721435254080321991}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033563efed2687f4aa8d65dd070ddf61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1144177938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1043,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1094619478}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1103946494}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: StopAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1463,6 +1498,10 @@ PrefabInstance:
       propertyPath: btnOff
       value: 
       objectReference: {fileID: 1648136693}
+    - target: {fileID: 366741789089094574, guid: 089a43d59b155574fa1e3d0c10b09897, type: 3}
+      propertyPath: listener
+      value: 
+      objectReference: {fileID: 1974975718}
     - target: {fileID: 676211079315615934, guid: 089a43d59b155574fa1e3d0c10b09897, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.063433
