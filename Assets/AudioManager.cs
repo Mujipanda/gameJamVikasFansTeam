@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour
         btnOn.onClick.AddListener(() => PlayAudio());
         btnOff.onClick.AddListener(() => StopAudio());
 
-        audioSource = GameObject.Find("bg").GetComponent<AudioSource>();
+        audioSource = GameObject.Find("Bg").GetComponent<AudioSource>();
     }
 
     void PlayAudio()
