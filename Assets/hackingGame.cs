@@ -24,7 +24,7 @@ public class hackingGame : MonoBehaviour
         masterControls = new MASTERCONTROLS();
         masterControls.Enable();
 
-        masterControls.Player2.movementPl2.performed += context => OnmovementPl2(context);
+        masterControls.Player2.movementPl2.performed += context => mov(context);
         rb = pipper.GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
@@ -37,15 +37,12 @@ public class hackingGame : MonoBehaviour
 
     }
 
-    private void OnmovementPl2(InputAction.CallbackContext input)
+    private void mov(InputAction.CallbackContext input)
     {
-
 
         //Vector2 movement = input.Get<Vector2>();
         Vector2 movement = input.ReadValue<Vector2>();
         direction = movement;
-
-        print(movement + "Movemnt Vec");
 
         float movX = movement.x;
 
@@ -61,7 +58,6 @@ public class hackingGame : MonoBehaviour
             case 1: rot = Quaternion.identity; break;
             case -1: rot = Quaternion.Euler(0, 0, 180); break;
         }
-        print(direction + " Quaternion");
     }
 
 
