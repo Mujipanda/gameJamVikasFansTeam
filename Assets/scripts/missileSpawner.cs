@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class missileSpawner : MonoBehaviour
 {
     AudioManager audioManager;
 
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     [SerializeField]
@@ -17,21 +18,25 @@ public class missileSpawner : MonoBehaviour
 
     [SerializeField]
     private Transform playerPos;
-
+    [Range(1f, 10f)]
     [SerializeField]
-    private float spawnDelay = 4;
+    private float spawnDelayMin, spawnDelayMax;
     [SerializeField]
     private float detectDistance = 2;
 
     [SerializeField]
     private GameObject missilePrefab;
 
-
+    [SerializeField]
+    private GameObject explosionEffect;
     private bool canSpawn = true;
 
     [SerializeField]
     private List<GameObject> missiles = new List<GameObject>();
     private List<float> lifeTime = new List<float>();
+
+    [SerializeField]
+    private playerHealth health;
 
     private void calMissilePos()
     {
@@ -68,12 +73,20 @@ public class missileSpawner : MonoBehaviour
             //print(dist);
             if (dist < detectDistance)
             {
+                //print("Explosion");
+                //GameObject expo = Instantiate(explosionEffect, missiles[i].transform);
+                //expo.transform.parent = transform;
+               // StartCoroutine(destroyEffect(expo));
+                createExplosion(i);
+                health.takeDamage();
                 Destroy(missiles[i]);
                 missiles.Remove(missiles[i]);
                 lifeTime.Remove(lifeTime[i]);
+                
             }
             else if (lifeTime[i] > 30)
             {
+                createExplosion(i);
                 print(lifeTime[i] + " life time eached");
                 Destroy(missiles[i]);
                 missiles.Remove(missiles[i]);
@@ -84,6 +97,18 @@ public class missileSpawner : MonoBehaviour
 
     }
 
+    private void createExplosion(int i)
+    {
+        GameObject expo = Instantiate(explosionEffect, missiles[i].transform);
+        expo.transform.parent = transform;
+        StartCoroutine(destroyEffect(expo));
+    }
+    private IEnumerator destroyEffect(GameObject effect)
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(effect);
+    }
+
     IEnumerator spawnMissile()
     {
         canSpawn = false;
@@ -91,9 +116,9 @@ public class missileSpawner : MonoBehaviour
         missiles.Add(missile);
         lifeTime.Add(0);
 
-        audioManager.PlaySFX(audioManager.Missile);
-
-        yield return new WaitForSeconds(spawnDelay);
+        //audioManager.PlaySFX(audioManager.Missile);
+        float delay = Random.Range(spawnDelayMin, spawnDelayMax);
+        yield return new WaitForSeconds(delay);
 
        
         canSpawn = true;
