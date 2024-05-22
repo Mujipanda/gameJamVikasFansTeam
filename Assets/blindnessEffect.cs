@@ -31,7 +31,7 @@ public class blindnessEffect : MonoBehaviour
 
     public void blindEffect()
     {
-        StartCoroutine(VignetEffect());
+        StartCoroutine(VignetEffectOn());
     }
     private void OnDestroy()
     {
@@ -39,11 +39,10 @@ public class blindnessEffect : MonoBehaviour
     }
 
 
-    private IEnumerator VignetEffect()
+    private IEnumerator VignetEffectOn()
     {
-        yield return null;
         float elapedTime = 0;
-        float duration = 2;
+        float duration = 1.5f;
         while (elapedTime < duration)
         {
 
@@ -57,9 +56,14 @@ public class blindnessEffect : MonoBehaviour
         }
         
         yield return new WaitForSeconds(effectDuration);
+        VignetEffectOff();
+    }
 
-        elapedTime = 0;
-        
+    public IEnumerator VignetEffectOff()
+    {
+        float elapedTime = 0;
+        float duration = 1.5f;
+
         while (elapedTime < duration)
         {
             float t = elapedTime / duration;
@@ -69,5 +73,10 @@ public class blindnessEffect : MonoBehaviour
             elapedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+
+        yield return null;
     }
 }
+
+
+
