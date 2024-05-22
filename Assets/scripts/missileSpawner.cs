@@ -124,4 +124,18 @@ public class missileSpawner : MonoBehaviour
 
 
     }
+
+    public void removeMissile()
+    {
+        for(int i = 0; i < missiles.Count; i++)
+        {
+            if (!missiles[i].activeSelf) 
+            {
+                createExplosion(i);
+                Destroy(missiles[i]);
+                missiles.RemoveAt(i);
+                
+            }
+        }
+    }
 }

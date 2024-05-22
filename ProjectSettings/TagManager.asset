@@ -7,6 +7,7 @@ TagManager:
   - obsticle
   - finish
   - Audio
+  - EMP
   layers:
   - Default
   - TransparentFX
