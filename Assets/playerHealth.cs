@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class playerHealth : MonoBehaviour
     {
         if (health <= 0) 
         {
+            SceneManager.LoadScene("DeathScreen");
             print("player is dead");
         }
     }
