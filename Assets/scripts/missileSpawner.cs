@@ -9,7 +9,7 @@ public class missileSpawner : MonoBehaviour
 
     private void Awake()
     {
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     [SerializeField]
@@ -73,10 +73,6 @@ public class missileSpawner : MonoBehaviour
             //print(dist);
             if (dist < detectDistance)
             {
-                //print("Explosion");
-                //GameObject expo = Instantiate(explosionEffect, missiles[i].transform);
-                //expo.transform.parent = transform;
-               // StartCoroutine(destroyEffect(expo));
                 createExplosion(i);
                 health.takeDamage();
                 Destroy(missiles[i]);
@@ -115,7 +111,7 @@ public class missileSpawner : MonoBehaviour
         missiles.Add(missile);
         lifeTime.Add(0);
 
-        //audioManager.PlaySFX(audioManager.Missile);
+        audioManager.PlaySFX(audioManager.Missile);
         float delay = Random.Range(spawnDelayMin, spawnDelayMax);
         yield return new WaitForSeconds(delay);
 

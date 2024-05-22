@@ -22,6 +22,7 @@ public class hackingGame : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [SerializeField]
     MASTERCONTROLS masterControls;
 
     
@@ -32,8 +33,8 @@ public class hackingGame : MonoBehaviour
     private bool settingNewLine = false;
     private void Start()
     {
-        masterControls = new MASTERCONTROLS();
-        masterControls.Enable();
+        //masterControls = neMASTERCONTROLS();
+        //masterControls.Enable();
 
         masterControls.Player2.movementPl2.performed += context => mov(context);
         rb = pipper.GetComponent<Rigidbody2D>();
