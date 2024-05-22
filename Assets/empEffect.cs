@@ -14,25 +14,25 @@ public class empEffect : MonoBehaviour
     private GameObject psPrefab;
 
     private float rotatePos;
-    [SerializeField]
+    
     private float circleRadius;
 
-    [SerializeField]
-    private Transform effectPos;
 
-    [SerializeField]
     private float offset;
 
     [SerializeField]
     missileSpawner missileSpawner;
 
     [SerializeField]
-    float duration;
+    float duration, coolDown;
 
+    private GameObject colliderObj;
 
-
+    private bool canPlayEffect = true;
     private void Start()
     {
+        colliderObj = transform.GetChild(0).gameObject;
+        colliderObj.SetActive(false);
         for (int i = 0; i < particleCount; i++)
         {
             GameObject particl = Instantiate(psPrefab, transform);
@@ -40,14 +40,9 @@ public class empEffect : MonoBehaviour
             particles.Add(i, particl);
             particles[i].SetActive(false);
         }
-        StartCoroutine(playEffect());
+        //StartCoroutine(playEffect());
     }
 
-
-    private void Update()
-    {
-
-    }
 
     Vector3 calPos(int index)
     {
@@ -56,7 +51,7 @@ public class empEffect : MonoBehaviour
         float x = Mathf.Cos(angleRad) * circleRadius;
         float y = Mathf.Sin(angleRad) * circleRadius;
 
-        return effectPos.position + new Vector3(x, y, 0);
+        return gameObject.transform.position + new Vector3(x, y, 0);
     }
 
     private void circleCollider()
@@ -70,31 +65,33 @@ public class empEffect : MonoBehaviour
             {
 
                 hit.gameObject.SetActive(false);
-                missileSpawner.removeMissile();
+                //missileSpawner.removeMissile();
 
             }
         }
     }
     private IEnumerator playEffect()
     {
+        canPlayEffect = false;
+        colliderObj.SetActive(true);
         float elapsedTime = 0;
-        float holdRadius = 0;
-        float holdOffset = 0;
+     
         while (elapsedTime < duration)
         {
+            
             float t = elapsedTime / duration;
 
-            holdRadius = circleRadius;
-            holdOffset = offset;
+            
             circleRadius = Mathf.Lerp(0, 10, t);
             offset = Mathf.Lerp(0, 30, t);
+            colliderObj.GetComponent<CircleCollider2D>().radius = circleRadius * 2;
             rotatePos = -Camera.main.transform.transform.rotation.eulerAngles.y - offset;
 
             for (int i = 0; i < particleCount; i++)
             {
                 particles[i].SetActive(true);
                 Vector3 pos = calPos(i);
-                float angle = Mathf.DeltaAngle(i + rotatePos, effectPos.eulerAngles.y);
+                float angle = Mathf.DeltaAngle(i + rotatePos, gameObject.transform.eulerAngles.y);
 
                 particles[i].transform.position = pos;
                 particles[i].transform.rotation = Quaternion.Euler(0f, 0f, -angle);
@@ -110,9 +107,13 @@ public class empEffect : MonoBehaviour
         {
             particles[i].SetActive(false);
         }
-        circleRadius = holdRadius;
-        offset = holdOffset;
-        yield return null;
+        circleRadius = 0;
+        offset = 0;
+        colliderObj.GetComponent<CircleCollider2D>().radius = 0;
+        colliderObj.SetActive(false);
+      
+        yield return new WaitForSeconds(coolDown);
+        canPlayEffect = true;
     }
 
     private void OnDrawGizmos()
@@ -130,5 +131,15 @@ public class empEffect : MonoBehaviour
         Gizmos.color = Color.green;
 
         Gizmos.DrawWireSphere(transform.position, circleRadius);
+    }
+
+    void OnEmp()
+    {
+        startEMP();
+    }
+    public void startEMP()
+    {
+        if(canPlayEffect)
+        StartCoroutine(playEffect());
     }
 }

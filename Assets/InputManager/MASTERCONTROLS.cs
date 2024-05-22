@@ -44,6 +44,15 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Emp"",
+                    ""type"": ""Button"",
+                    ""id"": ""36675aa2-2d0c-4782-8a23-a60e7603ef74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -222,6 +231,17 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""action"": ""pl1Test"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c148cb2a-47a9-4cc6-bd4f-b0194ebcab6d"",
+                    ""path"": ""<XInputController>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Emp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -391,6 +411,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_movement = m_Player1.FindAction("movement", throwIfNotFound: true);
         m_Player1_pl1Test = m_Player1.FindAction("pl1Test", throwIfNotFound: true);
+        m_Player1_Emp = m_Player1.FindAction("Emp", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_movementPl2 = m_Player2.FindAction("movementPl2", throwIfNotFound: true);
@@ -458,12 +479,14 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
     private List<IPlayer1Actions> m_Player1ActionsCallbackInterfaces = new List<IPlayer1Actions>();
     private readonly InputAction m_Player1_movement;
     private readonly InputAction m_Player1_pl1Test;
+    private readonly InputAction m_Player1_Emp;
     public struct Player1Actions
     {
         private @MASTERCONTROLS m_Wrapper;
         public Player1Actions(@MASTERCONTROLS wrapper) { m_Wrapper = wrapper; }
         public InputAction @movement => m_Wrapper.m_Player1_movement;
         public InputAction @pl1Test => m_Wrapper.m_Player1_pl1Test;
+        public InputAction @Emp => m_Wrapper.m_Player1_Emp;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -479,6 +502,9 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
             @pl1Test.started += instance.OnPl1Test;
             @pl1Test.performed += instance.OnPl1Test;
             @pl1Test.canceled += instance.OnPl1Test;
+            @Emp.started += instance.OnEmp;
+            @Emp.performed += instance.OnEmp;
+            @Emp.canceled += instance.OnEmp;
         }
 
         private void UnregisterCallbacks(IPlayer1Actions instance)
@@ -489,6 +515,9 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
             @pl1Test.started -= instance.OnPl1Test;
             @pl1Test.performed -= instance.OnPl1Test;
             @pl1Test.canceled -= instance.OnPl1Test;
+            @Emp.started -= instance.OnEmp;
+            @Emp.performed -= instance.OnEmp;
+            @Emp.canceled -= instance.OnEmp;
         }
 
         public void RemoveCallbacks(IPlayer1Actions instance)
@@ -573,6 +602,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnPl1Test(InputAction.CallbackContext context);
+        void OnEmp(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {

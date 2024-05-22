@@ -18,10 +18,10 @@ public class blindnessEffect : MonoBehaviour
     {
         vignet = ScriptableObject.CreateInstance<Vignette>();
         vignet.enabled.Override(true);
-        vignet.intensity.Override(1f);
+        vignet.intensity.Override(0f);
 
         fxVolume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, vignet);
-        blindEffect();
+        //blindEffect();
     }
     private void Update()
     {

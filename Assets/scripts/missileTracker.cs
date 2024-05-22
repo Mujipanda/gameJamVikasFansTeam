@@ -10,8 +10,12 @@ public class missileTracker : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+
+    [SerializeField]
+    private missileSpawner spawner;
     private void Start()
     {
+        spawner = GetComponentInParent<missileSpawner>();
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         //StartCoroutine(missile());
     }
@@ -26,10 +30,6 @@ public class missileTracker : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 50 * Time.fixedDeltaTime);
 
         transform.position = Vector3.SmoothDamp(transform.position, playerPos.position, ref velocity, followDelay * Time.deltaTime);
-
-        
-       
-        
     }
 
     private IEnumerator missile()
@@ -47,6 +47,14 @@ public class missileTracker : MonoBehaviour
             timeElapsed += Time.fixedDeltaTime;     
             yield return new WaitForEndOfFrame();
         }
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("EMP"))
+        {
+            gameObject.SetActive(false);
+            spawner.removeMissile();
+        }
     }
 }
