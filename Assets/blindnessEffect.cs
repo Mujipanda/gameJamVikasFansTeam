@@ -14,6 +14,8 @@ public class blindnessEffect : MonoBehaviour
     [SerializeField, Range(0.2f, 1)]
     private float vignetIntensity;
 
+
+    private bool canBlind = true;
     private void Start()
     {
         vignet = ScriptableObject.CreateInstance<Vignette>();
@@ -31,7 +33,8 @@ public class blindnessEffect : MonoBehaviour
 
     public void blindEffect()
     {
-        StartCoroutine(VignetEffectOn());
+        if (canBlind)
+            StartCoroutine(VignetEffectOn());
     }
     private void OnDestroy()
     {
@@ -41,6 +44,7 @@ public class blindnessEffect : MonoBehaviour
 
     private IEnumerator VignetEffectOn()
     {
+        canBlind = false;
         float elapedTime = 0;
         float duration = 1.5f;
         while (elapedTime < duration)
@@ -56,7 +60,7 @@ public class blindnessEffect : MonoBehaviour
         }
         
         yield return new WaitForSeconds(effectDuration);
-        VignetEffectOff();
+        StartCoroutine(VignetEffectOff());
     }
 
     public IEnumerator VignetEffectOff()
@@ -74,6 +78,7 @@ public class blindnessEffect : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        canBlind = true;
         yield return null;
     }
 }
