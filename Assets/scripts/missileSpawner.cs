@@ -97,6 +97,7 @@ public class missileSpawner : MonoBehaviour
         GameObject expo = Instantiate(explosionEffect, missiles[i].transform);
         expo.transform.parent = transform;
         StartCoroutine(destroyEffect(expo));
+        audioManager.PlaySFX(audioManager.Explosion);
     }
     private IEnumerator destroyEffect(GameObject effect)
     {

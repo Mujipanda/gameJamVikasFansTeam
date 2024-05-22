@@ -1283,7 +1283,10 @@ MonoBehaviour:
     Creepy Ominous Horror Music 1 by Audio_Dread -- https://freesound.org/s/524133/
 
     [Boom
-    SFX] Massive bass blast/drop/bomb by waveplaySFX -- https://freesound.org/s/193028/'
+    SFX] Massive bass blast/drop/bomb by waveplaySFX -- https://freesound.org/s/193028/
+
+    explosion2.wav
+    by IdkMrGarcia -- https://freesound.org/s/446624/ -- '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1346,7 +1349,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -516.13666, w: -22.722958}
+  m_margin: {x: 0, y: 0, z: -516.13666, w: -48.764378}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
