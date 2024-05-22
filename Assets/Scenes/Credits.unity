@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 318978396}
   - component: {fileID: 318978395}
   m_Layer: 5
-  m_Name: Niko
+  m_Name: Aurora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,8 +404,8 @@ RectTransform:
   m_LocalScale: {x: 1.9195001, y: 1.9195001, z: 1.9195001}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 979838292}
-  - {fileID: 1341947918}
+  - {fileID: 1704791147}
+  - {fileID: 1321861463}
   m_Father: {fileID: 715537724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 39f99c22fadb5c64bb8533d67d6ea43e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -979,11 +979,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 318978394}
+  m_Father: {fileID: 1725165624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163, y: -124.51158}
+  m_AnchoredPosition: {x: 163, y: 30.216202}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &979838293
@@ -1390,11 +1390,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1725165624}
+  m_Father: {fileID: 318978394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 159.00009, y: 145.72781}
+  m_AnchoredPosition: {x: 159.00003, y: -8.999985}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1321861464
@@ -1528,11 +1528,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 318978394}
+  m_Father: {fileID: 1725165624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 163.00002, y: -157.1539}
+  m_AnchoredPosition: {x: 163.00002, y: -2.4261017}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1341947919
@@ -1962,11 +1962,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1725165624}
+  m_Father: {fileID: 318978394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 159, y: 178.37012}
+  m_AnchoredPosition: {x: 159, y: 23.64235}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704791148
@@ -2080,7 +2080,7 @@ GameObject:
   - component: {fileID: 1725165626}
   - component: {fileID: 1725165625}
   m_Layer: 5
-  m_Name: Aurora
+  m_Name: Niko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2098,8 +2098,8 @@ RectTransform:
   m_LocalScale: {x: 1.9195001, y: 1.9195001, z: 1.9195001}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1704791147}
-  - {fileID: 1321861463}
+  - {fileID: 979838292}
+  - {fileID: 1341947918}
   m_Father: {fileID: 715537724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2127,7 +2127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1b9fcdb62572b7a49b60563590809d78, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
