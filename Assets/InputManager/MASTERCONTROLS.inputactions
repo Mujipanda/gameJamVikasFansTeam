@@ -228,7 +228,7 @@
             "id": "24ec8e3e-58f3-4aa3-aee2-e8b6c176fd0b",
             "actions": [
                 {
-                    "name": "movementPl2",
+                    "name": "Movement2",
                     "type": "PassThrough",
                     "id": "b64b665c-c3b4-42f9-ba68-6a775dadadbc",
                     "expectedControlType": "Vector2",
@@ -254,7 +254,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -265,7 +265,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -276,7 +276,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -287,7 +287,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -298,7 +298,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -309,7 +309,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -320,7 +320,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -331,7 +331,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -342,7 +342,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -353,7 +353,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "movementPl2",
+                    "action": "Movement2",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },

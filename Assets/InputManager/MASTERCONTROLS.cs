@@ -250,7 +250,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
             ""id"": ""24ec8e3e-58f3-4aa3-aee2-e8b6c176fd0b"",
             ""actions"": [
                 {
-                    ""name"": ""movementPl2"",
+                    ""name"": ""Movement2"",
                     ""type"": ""PassThrough"",
                     ""id"": ""b64b665c-c3b4-42f9-ba68-6a775dadadbc"",
                     ""expectedControlType"": ""Vector2"",
@@ -276,7 +276,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -287,7 +287,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -298,7 +298,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -309,7 +309,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -320,7 +320,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -331,7 +331,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -342,7 +342,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -353,7 +353,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -364,7 +364,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -375,7 +375,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""movementPl2"",
+                    ""action"": ""Movement2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -414,7 +414,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         m_Player1_Emp = m_Player1.FindAction("Emp", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_movementPl2 = m_Player2.FindAction("movementPl2", throwIfNotFound: true);
+        m_Player2_Movement2 = m_Player2.FindAction("Movement2", throwIfNotFound: true);
         m_Player2_testAction = m_Player2.FindAction("testAction", throwIfNotFound: true);
     }
 
@@ -539,13 +539,13 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
     // Player2
     private readonly InputActionMap m_Player2;
     private List<IPlayer2Actions> m_Player2ActionsCallbackInterfaces = new List<IPlayer2Actions>();
-    private readonly InputAction m_Player2_movementPl2;
+    private readonly InputAction m_Player2_Movement2;
     private readonly InputAction m_Player2_testAction;
     public struct Player2Actions
     {
         private @MASTERCONTROLS m_Wrapper;
         public Player2Actions(@MASTERCONTROLS wrapper) { m_Wrapper = wrapper; }
-        public InputAction @movementPl2 => m_Wrapper.m_Player2_movementPl2;
+        public InputAction @Movement2 => m_Wrapper.m_Player2_Movement2;
         public InputAction @testAction => m_Wrapper.m_Player2_testAction;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
@@ -556,9 +556,9 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_Player2ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_Player2ActionsCallbackInterfaces.Add(instance);
-            @movementPl2.started += instance.OnMovementPl2;
-            @movementPl2.performed += instance.OnMovementPl2;
-            @movementPl2.canceled += instance.OnMovementPl2;
+            @Movement2.started += instance.OnMovement2;
+            @Movement2.performed += instance.OnMovement2;
+            @Movement2.canceled += instance.OnMovement2;
             @testAction.started += instance.OnTestAction;
             @testAction.performed += instance.OnTestAction;
             @testAction.canceled += instance.OnTestAction;
@@ -566,9 +566,9 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
 
         private void UnregisterCallbacks(IPlayer2Actions instance)
         {
-            @movementPl2.started -= instance.OnMovementPl2;
-            @movementPl2.performed -= instance.OnMovementPl2;
-            @movementPl2.canceled -= instance.OnMovementPl2;
+            @Movement2.started -= instance.OnMovement2;
+            @Movement2.performed -= instance.OnMovement2;
+            @Movement2.canceled -= instance.OnMovement2;
             @testAction.started -= instance.OnTestAction;
             @testAction.performed -= instance.OnTestAction;
             @testAction.canceled -= instance.OnTestAction;
@@ -606,7 +606,7 @@ public partial class @MASTERCONTROLS: IInputActionCollection2, IDisposable
     }
     public interface IPlayer2Actions
     {
-        void OnMovementPl2(InputAction.CallbackContext context);
+        void OnMovement2(InputAction.CallbackContext context);
         void OnTestAction(InputAction.CallbackContext context);
     }
 }
