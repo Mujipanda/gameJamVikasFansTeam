@@ -1,6 +1,9 @@
+using System.Collections;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class hackingGame : MonoBehaviour
 {
@@ -33,10 +36,10 @@ public class hackingGame : MonoBehaviour
     private bool settingNewLine = false;
     private void Start()
     {
-        //masterControls = neMASTERCONTROLS();
-        //masterControls.Enable();
+        masterControls = new MASTERCONTROLS();
+        masterControls.Enable();
 
-        masterControls.Player2.movementPl2.performed += context => mov(context);
+        //masterControls.Player2.Movement2.performed += context => mov(context);
         rb = pipper.GetComponent<Rigidbody2D>();
 
         lineRend = gameObject.GetComponentInChildren<LineRenderer>();
@@ -49,10 +52,14 @@ public class hackingGame : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(pipper != null)
+        {
+            Vector3 dir = pipper.transform.up * speed * Time.deltaTime;
+            rb.velocity = new Vector2(dir.x, dir.y);
+            pipper.transform.rotation = rot;
+        }
         // local position
-        Vector3 dir = pipper.transform.up * speed * Time.deltaTime;
-        rb.velocity = new Vector2(dir.x, dir.y);
-        pipper.transform.rotation = rot;
+       
         //print("banana");
         if(!settingNewLine)
         {
@@ -61,6 +68,7 @@ public class hackingGame : MonoBehaviour
        
     }
 
+    /*
     private void mov(InputAction.CallbackContext input)
     {
 
@@ -92,7 +100,7 @@ public class hackingGame : MonoBehaviour
         }
 
     }
-
+    */
 
     public void wallCollision()
     {
@@ -102,8 +110,47 @@ public class hackingGame : MonoBehaviour
 
     public void finishCollsion()
     {
-
+        StartCoroutine(empDurationChange());
+        resetPipper();
         print("pipper hit finish");
+    }
+
+    IEnumerator empDurationChange()
+    {
+        empEffect.coolDown = 0;
+        yield return new WaitForSeconds(4);
+        empEffect.coolDown = 5;
+
+    }
+
+    void OnMovement2(InputValue input)
+    {
+        Vector2 movement = input.Get<Vector2>();
+
+        float movX = movement.x;
+
+        switch (movement.x)
+        {
+
+            case 1:
+                rot = Quaternion.Euler(0, 0, -90);
+                addPointToLine(); break;
+            case -1:
+                rot = Quaternion.Euler(0, 0, 90);
+                addPointToLine(); break;
+        }
+        float movY = movement.y;
+        switch (movement.y)
+        {
+            case 1:
+                rot = Quaternion.identity;
+                addPointToLine();
+                break;
+            case -1:
+                rot = Quaternion.Euler(0, 0, 180);
+                addPointToLine(); break;
+        }
+        print("OnMove");
     }
     private void OnDrawGizmos()
     {

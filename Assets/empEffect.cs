@@ -24,7 +24,8 @@ public class empEffect : MonoBehaviour
     missileSpawner missileSpawner;
 
     [SerializeField]
-    float duration, coolDown;
+    float duration;
+    static public float coolDown = 5;
 
     private GameObject colliderObj;
 
